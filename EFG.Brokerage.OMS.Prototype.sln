@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMS.BaseLibrary", "OMS.BaseLibrary\OMS.BaseLibrary.csproj", "{9183F3D2-626C-41BA-818B-0DB42101785C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMSClient", "OMSClient\OMSClient.csproj", "{C0FEFE6F-2E3E-498C-88AE-588AE307AB81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFG.OrderService", "EFG.OrderService\EFG.OrderService.csproj", "{A8DD88ED-8BA3-4AA9-8CAB-2C1C1C79E8F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFG.OrderService.WindowsServiceHoster", "EFG.OrderService.WindowsServiceHoster\EFG.OrderService.WindowsServiceHoster.csproj", "{5B981C2E-FBFC-4CD8-9309-E92A213B661E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFG.OMSServer", "EFG.OMSServer\EFG.OMSServer.csproj", "{5D837E25-5AE7-42A2-A9CF-10E1305D6427}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9183F3D2-626C-41BA-818B-0DB42101785C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9183F3D2-626C-41BA-818B-0DB42101785C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9183F3D2-626C-41BA-818B-0DB42101785C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9183F3D2-626C-41BA-818B-0DB42101785C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0FEFE6F-2E3E-498C-88AE-588AE307AB81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0FEFE6F-2E3E-498C-88AE-588AE307AB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0FEFE6F-2E3E-498C-88AE-588AE307AB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0FEFE6F-2E3E-498C-88AE-588AE307AB81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8DD88ED-8BA3-4AA9-8CAB-2C1C1C79E8F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8DD88ED-8BA3-4AA9-8CAB-2C1C1C79E8F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8DD88ED-8BA3-4AA9-8CAB-2C1C1C79E8F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8DD88ED-8BA3-4AA9-8CAB-2C1C1C79E8F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B981C2E-FBFC-4CD8-9309-E92A213B661E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B981C2E-FBFC-4CD8-9309-E92A213B661E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B981C2E-FBFC-4CD8-9309-E92A213B661E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B981C2E-FBFC-4CD8-9309-E92A213B661E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D837E25-5AE7-42A2-A9CF-10E1305D6427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D837E25-5AE7-42A2-A9CF-10E1305D6427}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D837E25-5AE7-42A2-A9CF-10E1305D6427}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D837E25-5AE7-42A2-A9CF-10E1305D6427}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67F8A7D7-9B36-4B40-A9DD-CB5A1CD7C25A}
+	EndGlobalSection
+EndGlobal
