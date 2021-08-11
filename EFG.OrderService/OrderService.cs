@@ -13,7 +13,7 @@ namespace EFG.OrderService
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     public class OrderService : IOrderService, IDisposable
     {
-        readonly OrderDbContext _context = new OrderDbContext();
+         OrderDbContext _context = new OrderDbContext();
 
         [OperationBehavior(TransactionScopeRequired = true)]
         public void AddOrder(Orders order)

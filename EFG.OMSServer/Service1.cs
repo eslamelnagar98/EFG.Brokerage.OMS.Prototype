@@ -24,7 +24,7 @@ namespace EFG.OMSServer
             try
             {
                 clsTcpServer o_clsTcpServer = new clsTcpServer();
-                //o_clsTcpServer.ListenToQueue();
+                o_clsTcpServer.ListenToQueue();
                 m_Logger.Info($"Starting {this.ServiceName}....");
 
                 m_Logger.Debug($"Initializing service {this.ServiceName}...");

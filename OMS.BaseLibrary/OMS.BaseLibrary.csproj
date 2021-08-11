@@ -52,9 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202108101252246_Initial.cs" />
-    <Compile Include="Migrations\202108101252246_Initial.designer.cs">
-      <DependentUpon>202108101252246_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202108102146066_Init.cs" />
+    <Compile Include="Migrations\202108102146066_Init.designer.cs">
+      <DependentUpon>202108102146066_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="oClientLogIn.cs" />
@@ -94,8 +94,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108101252246_Initial.resx">
-      <DependentUpon>202108101252246_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108102146066_Init.resx">
+      <DependentUpon>202108102146066_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
