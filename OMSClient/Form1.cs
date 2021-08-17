@@ -24,7 +24,7 @@ namespace OMSClient
         {
             InitializeComponent();
             this.DataFeedGrid.DataSource = orderTable;
-            o_TcpClient = new TcpClient("127.0.0.1", 8097);
+            o_TcpClient = new TcpClient("127.0.0.1", 2113);
             o_NetworkStream = o_TcpClient.GetStream();
             o_Thread = new Thread(new ThreadStart(Listen));
             o_Thread.IsBackground = true;
