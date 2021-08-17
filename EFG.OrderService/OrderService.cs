@@ -1,12 +1,7 @@
 ﻿using OMS.BaseLibrary;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Messaging;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EFG.OrderService
 {
