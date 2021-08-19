@@ -12,7 +12,8 @@ RUN MSBuild EFG.Brokerage.OMS.Prototype.sln -t:build -restore -p:Configuration=R
 # Stage 2 build runtime image
 FROM ${Registery}mcr.microsoft.com/dotnet/framework/runtime
 
-RUN  PowerShell -Command "Enable-WindowsOptionalFeature -Online -FeatureName WCF-TCP-Activation45, MSMQ-Server, MSMQ-Triggers, WCF-MSMQ-Activation45 -All"
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+RUN  Enable-WindowsOptionalFeature -Online -FeatureName WCF-TCP-Activation45, MSMQ-Server, MSMQ-Triggers, WCF-MSMQ-Activation45 -All
 
 RUN mkdir orderservice
 WORKDIR /orderservice
@@ -23,4 +24,4 @@ RUN C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\InstallUtil.exe EFG.Ord
 
 EXPOSE 2113
 
-ENTRYPOINT ["powershell", ".\checkservice.ps1 MyService"]
+CMD powershell -command ".\checkservice.ps1 MyService"

@@ -1,5 +1,5 @@
 $serviceName=$args[0]
-Start-Sleep -Seconds 5 
+Start-Service -Name $serviceName
 $service = Get-Service -Name $serviceName
 while($service.Status -eq "Running")
 {

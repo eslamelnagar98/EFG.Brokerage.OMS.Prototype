@@ -12,6 +12,9 @@ RUN MSBuild EFG.OMSServer/EFG.OMSServer.csproj -t:build -restore -p:Configuratio
 # Stage 2 build runtime image
 FROM ${Registery}mcr.microsoft.com/dotnet/framework/runtime
 
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+RUN  Enable-WindowsOptionalFeature -Online -FeatureName WCF-TCP-Activation45, MSMQ-Server, MSMQ-Triggers, WCF-MSMQ-Activation45 -All
+
 RUN mkdir app
 WORKDIR /app
 COPY --from=Build C:\\sources\\EFG.OMSServer\\bin\\Release\\ .
@@ -21,4 +24,4 @@ RUN C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\InstallUtil.exe EFG.OMS
 
 EXPOSE 8097
 
-ENTRYPOINT [ "powershell" "-command",  ".\checkservice.ps1 Service1"]
+CMD powershell -command ".\checkservice.ps1 Service1"
