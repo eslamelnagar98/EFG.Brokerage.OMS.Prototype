@@ -12,15 +12,13 @@ namespace EFG.OrderService.WindowsServiceHoster
     {
         static void Main(string [] args)
         {
-#if DEBUG
-#else
+
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
                 new MyService()
             };
             ServiceBase.Run(ServicesToRun);
-#endif
         }
     }
 }

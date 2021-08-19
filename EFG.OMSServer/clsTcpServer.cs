@@ -84,6 +84,15 @@ namespace EFG.OMSServer
         public void ListenToQueue()
         {
             queueSrc = ConfigurationManager.AppSettings["queueSrc"].ToString();
+            if (!MessageQueue.Exists(queueSrc))
+            {
+                MessageQueue.Create(queueSrc, true);
+                MessageQueue m_MessageQueueQueue = new MessageQueue(queueSrc);
+                m_MessageQueueQueue.SetPermissions(@"Everyone", MessageQueueAccessRights.FullControl);
+            }
+               
+            //if (!MessageQueue.Exists("twoorders"))
+            //    MessageQueue.Create("twoorders");
             msgQueue = new MessageQueue(queueSrc);
             //msgQueue = new MessageQueue(@".\private$\orders2");
             msgQueue.Formatter = new XmlMessageFormatter(new Type[] { typeof(o_orderData) });
