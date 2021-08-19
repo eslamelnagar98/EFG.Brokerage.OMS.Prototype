@@ -11,7 +11,7 @@ RUN MSBuild EFG.OMSServer/EFG.OMSServer.csproj -t:build -restore -p:Configuratio
 
 # Stage 2 build runtime image
 FROM ${Registery}mcr.microsoft.com/dotnet/framework/runtime
-
+RUN  PowerShell -Command "Enable-WindowsOptionalFeature -Online -FeatureName MSMQ-Server, MSMQ-Triggers -All"
 RUN mkdir app
 WORKDIR /app
 COPY --from=Build C:\\sources\\EFG.OMSServer\\bin\\Release\\ .

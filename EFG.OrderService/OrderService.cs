@@ -1,5 +1,6 @@
 ﻿using OMS.BaseLibrary;
 using System;
+using System.Configuration;
 using System.Messaging;
 using System.ServiceModel;
 
@@ -16,7 +17,8 @@ namespace EFG.OrderService
             Logger.Info("Adding Order.");
             o_orderData orderData = new o_orderData
             { Account = order.Account, Price = order.Price, Quantity = order.Quantity };
-            MessageQueue messageQueue = new MessageQueue(@".\private$\orders");
+            var  queueSrc = ConfigurationManager.AppSettings["queueSrc"].ToString();
+            MessageQueue messageQueue = new MessageQueue(queueSrc);
             Message message = new Message();
             try
             {
