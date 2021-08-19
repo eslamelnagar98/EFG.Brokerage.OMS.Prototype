@@ -27,8 +27,8 @@ namespace EFG.OMSServer
         public clsTcpServer()
         {
             collection = new Dictionary<string, ClientSessionHandler>();
-            File.AppendAllText("C:\\app\\LogFile.txt", Dns.GetHostByName(Dns.GetHostName()).AddressList[0].ToString() + Environment.NewLine);
-            o_TcpListener = new TcpListener(IPAddress.Parse("127.0.0.1"), 8097);
+            m_Logger.Info("Start listener.");            
+            o_TcpListener = new TcpListener(IPAddress.Parse("0.0.0.0"), 8097);
             o_ServerListenerThread = new Thread(new ThreadStart(this.Listen));
             o_ServerListenerThread.Name = "OMS Server main listen";
             o_ServerListenerThread.Start();
@@ -37,9 +37,9 @@ namespace EFG.OMSServer
 
         private void Listen()
         {
-            File.AppendAllText("C:\\app\\LogFile.txt", "Before Listen Start" + Environment.NewLine);
-            o_TcpListener.Start();
-            File.AppendAllText("C:\\app\\LogFile.txt", "After Listen Start" + Environment.NewLine);
+            m_Logger.Info("Before Listen Start");            
+            o_TcpListener.Start();            
+            m_Logger.Info("After Listen Start");
 
             while (IsWorking)
             {
@@ -53,9 +53,9 @@ namespace EFG.OMSServer
                         collection[SessionID] = o_ClientSessionHandler;
                     }
                 }
-                catch (Exception gXp)
+                catch (Exception ex)
                 {
-                    m_Logger.ErrorException("An error occurred while accepting/starting DistributionManager session", gXp);
+                    m_Logger.Error(ex);
                 }
             }
         }
@@ -72,11 +72,11 @@ namespace EFG.OMSServer
                     o_oEnvelopMessagetoClient.oMessages.Add(orderData);
                     o_oEnvelopMessagetoClient.Serialize(item.Value.o_NetworkStream);
 
-                    m_Logger.Trace($"server is sending new message to clients orderData: {orderData}");
+                    m_Logger.Info($"server is sending new message to clients orderData: {orderData}");
                 }
                 catch (Exception gXp)
                 {
-
+                    m_Logger.Error(gXp);
                 }
             }
         }
@@ -105,9 +105,11 @@ namespace EFG.OMSServer
         {
             try
             {
+                m_Logger.Info($"Get Message {source}");
                 MessageQueue messageQueue = (MessageQueue)source;
                 Message message = messageQueue.EndPeek(e.AsyncResult);
                 var msg = (o_orderData)message.Body;
+                m_Logger.Info($"Process Message {msg}");
                 orderDataRow = orderTable.NewOrderRow();
                 orderDataRow.Account = msg.Account;
                 orderDataRow.Price = msg.Price;
@@ -119,10 +121,9 @@ namespace EFG.OMSServer
                 messageQueue.Receive();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-
+                m_Logger.Error(ex);
             }
 
             msgQueue.BeginPeek();
