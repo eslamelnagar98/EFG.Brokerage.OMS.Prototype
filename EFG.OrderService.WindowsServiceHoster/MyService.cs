@@ -1,26 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
+﻿using NLog;
+using System;
 using System.ServiceModel;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace EFG.OrderService.WindowsServiceHoster
 {
     public partial class MyService : ServiceBase
     {
+        private ServiceHost host;
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         public MyService()
         {
             InitializeComponent();
         }
-        ServiceHost host;
+        
         protected override void OnStart(string[] args)
         {
             try
@@ -30,14 +23,17 @@ namespace EFG.OrderService.WindowsServiceHoster
             }
             catch (Exception ex)
             {
-
+                Logger.Error(ex);
             }
+
+            Logger.Info($"Servie has been started");
         }
 
 
         protected override void OnStop()
-        {
+        {            
             host.Close();
+            Logger.Info($"Servie has been Stopped");
         }
     }
 }

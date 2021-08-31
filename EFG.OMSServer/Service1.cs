@@ -34,16 +34,13 @@ namespace EFG.OMSServer
             }
             catch (Exception gXp)
             {
+                m_Logger.Error(gXp);
                 m_Logger.Fatal(gXp, $"Fatal error occurred while starting service {this.ServiceName}. Service will be stopped!");
-
-                try
-                {
-                    this.Stop();
-                }
-                catch (Exception ex)
-                {
-                    m_Logger.Fatal(ex, $"Failed to stop service {this.ServiceName}.");
-                }
+                
+            }
+            finally
+            {
+                LogManager.Flush();
             }
         }
 
@@ -55,10 +52,16 @@ namespace EFG.OMSServer
 
 
                 m_Logger.Info("Service {0} stopped successfully", this.ServiceName);
+                
             }
             catch (Exception gXp)
             {
                 m_Logger.Fatal(gXp, $"An error occurred while stopping service {this.ServiceName}");
+                
+            }
+            finally
+            {
+                LogManager.Flush();
             }
         }
     }

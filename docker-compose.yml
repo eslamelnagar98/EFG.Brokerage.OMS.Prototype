@@ -1,0 +1,26 @@
+version: "3.9"
+services: 
+  omsserver:
+    build: 
+      context: .
+      dockerfile: OMSServer.Dockerfile
+    ports: 
+      - "8097:8097"
+
+  orderservice:
+    build:
+      context: .
+      dockerfile: OrderService.Dockerfile
+    ports: 
+      - "2113:2113"
+
+
+  dbserver:
+    image: microsoft/mssql-server-windows-express:latest
+    isolation: hyperv
+    ports: 
+      - "1434:1433"
+    environment: 
+      - ACCEPT_EULA=Y
+      - sa_password=P@ssw0rd
+

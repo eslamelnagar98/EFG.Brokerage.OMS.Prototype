@@ -12,27 +12,7 @@ namespace EFG.OrderService.WindowsServiceHoster
     {
         static void Main(string [] args)
         {
-            //var service = new MyService();
-            //ServiceBase.Run(service);
 
-            //ServiceHost host;
-            //host = new ServiceHost(typeof(OrderService));
-            //host.Open();
-            //Console.ReadLine();
-            //host.Close();
-
-            //using (var service = new MyService())
-            //{
-            //    if (Environment.UserInteractive)
-            //    {
-            //        service.StartupAndStop(args);
-            //    }
-            //    else
-            //    {
-            //        ServiceBase.Run(service);
-            //    }
-            //}
-            //System.Diagnostics.Debugger.Launch();
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
