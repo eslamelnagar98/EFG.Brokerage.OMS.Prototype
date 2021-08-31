@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFG.OMSServer", "EFG.OMSSer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C1FE39D1-8EFC-4E8C-823D-9FF7E035BDDA}"
 	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		..\Development_Applications\Git\Samples\EFG.Brokerage.OMS.Prototype\DockerCommandsToRun (ReadMe).md = ..\Development_Applications\Git\Samples\EFG.Brokerage.OMS.Prototype\DockerCommandsToRun (ReadMe).md
 		OMSServer.Dockerfile = OMSServer.Dockerfile
 		OrderService.Dockerfile = OrderService.Dockerfile
 	EndProjectSection
